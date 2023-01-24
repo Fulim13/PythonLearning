@@ -550,7 +550,7 @@ for x in values:
 values = (x * 2 for x in range(1000))
 print("gen:", getsizeof(values))  # take 104 byte memory
 print(values)  # <generator object <genexpr> at 0x00000125CF1C20A0>
-print(len(values))  # not length in generator, in each iteration, new value generate
+# print(len(values))  # not length in generator, in each iteration, new value generate
 # Traceback (most recent call last):
 #   File "c:\Users\ASUS\Desktop\Python\data_structures.py", line 553, in <module>
 #     print(len(values))
@@ -564,3 +564,25 @@ print("list:", getsizeof(values))  # list: 32984
 
 ######################################################################################
 # Unpacking Operator
+numbers = [1, 2, 3]
+print(*numbers)  # 1 2 3
+print(1, 2, 3)  # 1 2 3
+
+values = list(range(5))
+print(values)  # [0, 1, 2, 3, 4]
+# can unpack any iterables, list, range , string
+values = [*range(5), *"Hello"]
+print(values)  # [0, 1, 2, 3, 4, 'H', 'e', 'l', 'l', 'o']
+
+# combine list
+first = [1, 2]
+second = [3]
+values = [*first, "a", *second, *"Hello"]
+print(values)  # [1, 2, 'a', 3, 'H', 'e', 'l', 'l', 'o']
+
+# combine dict
+first = {"x": 1}
+second = {"x": 10, "y": 2}
+combined = {**first, **second, "z": 1}
+# if you have same key, the last one will be used
+print(combined)  # {'x': 10, 'y': 2, ' z': 1}
