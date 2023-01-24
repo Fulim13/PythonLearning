@@ -435,7 +435,63 @@ if 1 in first:
 
 # yes
 ######################################################################################
-# Dictionary
+# Dictionary - collecion of key value pair
+# phone book
+# key -> value
+# name -> contact
+
+point = {"x": 1, "y": 2}
+# only can use immutable type for the key, like String or numbers
+# value can be any type
+list()
+tuple()
+set()
+point = dict(x=1, y=2)
+
+# using key to find value
+print(point["x"])  # 1
+point["x"] = 10
+
+# change the value using key
+print(point)  # {'x': 10, 'y': 2}
+
+# add new key value pair
+point["z"] = 20
+print(point)  # {'x': 10, 'y': 2, 'z': 20}
+
+# Did not exist key
+# print(point["a"])
+# Traceback (most recent call last):
+#   File "c:\Users\ASUS\Desktop\Python\data_structures.py", line 463, in <module>
+#     print(point["a"])
+# KeyError: 'a'
+
+# check existence of the key first , before access the key
+if "a" in point:
+    print(point["a"])
+
+# if the key does not exist , it will return None
+print(point.get("a"))  # None
+
+# change None to something
+print(point.get("a", 0))  # 0
+
+# delete item
+del point["x"]
+print(point)  # {'y': 2, 'z': 20}
+
+# Loop over dict
+for key in point:
+    print(key, point[key])
+
+# y 2
+# z 20
+
+# .items() will make it become tuple of key value pair, so can unpacking
+for key, value in point.items():
+    print(key, value)
+# y 2
+# z 20
 
 ######################################################################################
 # Dicionary Comprehension
