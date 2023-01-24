@@ -1,5 +1,6 @@
 # List - can have any types , not need to same type
 
+from sys import getsizeof
 from array import array
 from collections import deque
 letters = ["a", "b", "c"]
@@ -528,6 +529,38 @@ print(values)  # <generator object <genexpr> at 0x0000024360ED20A0>
 
 ######################################################################################
 # Generator Expression
+values = [x * 2 for x in range(10)]
+for x in values:
+    print(x)
+
+# 0
+# 2
+# 4
+# 6
+# 8
+# 10
+# 12
+# 14
+# 16
+
+
+# if we have the infinite string of data, not memory efficient to store all the data in list
+# better using generator (are iterables), in each iteration, it will generate new value
+
+values = (x * 2 for x in range(1000))
+print("gen:", getsizeof(values))  # take 104 byte memory
+print(values)  # <generator object <genexpr> at 0x00000125CF1C20A0>
+print(len(values))  # not length in generator, in each iteration, new value generate
+# Traceback (most recent call last):
+#   File "c:\Users\ASUS\Desktop\Python\data_structures.py", line 553, in <module>
+#     print(len(values))
+# TypeError: object of type 'generator' has no len()
+# for x in values:
+#     print(x)
+
+values = {x * 2 for x in range(1000)}
+print("list:", getsizeof(values))  # list: 32984
+
 
 ######################################################################################
 # Unpacking Operator
