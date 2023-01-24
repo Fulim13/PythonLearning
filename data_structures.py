@@ -490,11 +490,41 @@ for key in point:
 # .items() will make it become tuple of key value pair, so can unpacking
 for key, value in point.items():
     print(key, value)
+
 # y 2
 # z 20
 
 ######################################################################################
 # Dicionary Comprehension
+
+# Loop
+values = []
+for x in range(5):
+    values.append(x*2)
+print(values)  # [0, 2, 4, 6, 8]
+
+# List Comprehension
+values = [x*2 for x in range(5)]
+print(values)  # [0, 2, 4, 6, 8]
+
+# Set Comprehension
+values = {x*2 for x in range(5)}
+print(values)  # {0, 2, 4, 6, 8}
+
+# Loop for Dic
+values = {}
+for x in range(5):
+    values[x] = x*2
+
+print(values)  # {0: 0, 1: 2, 2: 4, 3: 6, 4: 8}
+
+# Dic Comprehension
+values = {x: x*2 for x in range(5)}
+print(values)  # {0: 0, 1: 2, 2: 4, 3: 6, 4: 8}
+
+# Tuple Comprehension
+values = (x*2 for x in range(5))
+print(values)  # <generator object <genexpr> at 0x0000024360ED20A0>
 
 ######################################################################################
 # Generator Expression
