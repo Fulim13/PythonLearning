@@ -2,6 +2,8 @@
 # Object: instance of a class
 # CLass : Human
 # Objects : John,Mary,Smith
+from collections import namedtuple
+from abc import ABC, abstractmethod
 x = 1
 print(type(x))  # <class 'int'>
 
@@ -340,7 +342,7 @@ print(product.price)  # 20
 # we do not getter and setter be accessible
 class Product:
     def __init__(self, price):
-        self.price = price
+        self.__price = price
     # one solution is use __get_price
     # another
 
@@ -362,3 +364,392 @@ print(product.price)  # 10
 #   File "c:\Users\ASUS\Desktop\Python\classes.py", line 343, in __init__
 #     self.price = price
 # AttributeError: can't set attribute 'price'
+
+####################################################################################################################################################
+# Inherintance - common behaviour in one class can inherit by other class
+
+
+class Animal:
+    def __init__(self):
+        self.age = 1
+
+    def eat(self):
+        print("eat")
+
+# Animal:Parent, Base
+# Mammal:Child , Sub
+
+
+class Mammal(Animal):
+    def walk(self):
+        print("walk")
+
+
+class Fish(Animal):
+    def swim(self):
+        print("swim")
+
+
+m = Mammal()
+m.eat()  # eat
+print(m.age)  # 1
+
+####################################################################################################################################################
+# The Object class
+print(isinstance(m, Mammal))  # True
+print(isinstance(m, Animal))  # True
+
+# all the class inherit from object class
+print(isinstance(m, object))  # True
+
+print(issubclass(Mammal, Animal))  # True
+print(issubclass(Mammal, object))  # True
+
+
+####################################################################################################################################################
+# Method overriding
+
+class Animal:
+    def __init__(self):
+        self.age = 1
+
+    def eat(self):
+        print("eat")
+
+
+class Mammal(Animal):
+    def __init__(self):
+        self.weight = 2
+
+    def walk(self):
+        print("walk")
+
+
+m = Mammal()
+print(m.weight)  # 2
+# print(m.age)
+# Traceback (most recent call last):
+#   File "c:\Users\ASUS\Desktop\Python\classes.py", line 428, in <module>
+#     print(m.age)
+# AttributeError: 'Mammal' object has no attribute 'age'
+
+# m object do not have age attr cuz, Mammal contructor have called, so Animal contructor will not called, if Mammal class do not have contructor, then it will call the parent class contructor
+
+
+# Use super to call the parent contructor
+class Animal:
+    def __init__(self):
+        print("Animal Constructor")
+        self.age = 1
+
+    def eat(self):
+        print("eat")
+
+
+class Mammal(Animal):
+    def __init__(self):
+        super().__init__()
+        self.weight = 2
+        print("Mammal Constructor")
+
+    def walk(self):
+        print("walk")
+
+
+m = Mammal()
+# Animal Constructor
+# Mammal Constructor
+print(m.weight)  # 2
+print(m.age)  # 1
+####################################################################################################################################################
+
+# Multi-level Inherintance - increase complexity and raise various problem
+
+
+class Animal:
+    def eat(self):
+        print("eat")
+
+
+class Bird(Animal):
+    def fly(self):
+        print("fly")
+
+
+class Chicken(Bird):
+    pass
+
+
+# chicken cannot fly,although chicken is Bird
+# Employee - Person -LivindCreature - Thing : too complicated
+
+# usually one level inheritance should be enough, dont multi level
+####################################################################################################################################################
+# Multiple Inheritance
+
+class Employee:
+    def greet(self):
+        print("Employee Greet")
+
+
+class Person:
+    def greet(self):
+        print("Person Greet")
+
+
+class Manager(Employee, Person):
+    pass
+
+
+manager = Manager()
+manager.greet()  # Employee Greet
+# Python intrepreter will run the first look at Manager class got greet or not , if not it will look at first base class then second base class
+
+# sometime this are bad,cuz when change the order or two Base class will create issue
+# if the two base class have nothing simmlariry, and you want the child class get the attr and method from both parent class , this is the time use multipler inheritance
+
+# Good Example
+
+
+class Flyer:
+    def fly(self):
+        pass
+
+
+class Swimmer:
+    def swim(self):
+        pass
+
+
+class FlyingFish(Flyer, Swimmer):
+    pass
+
+####################################################################################################################################################
+
+# Good Example of Inheritance
+# All exception class should end with Error(convention)
+
+
+class InvalidOperationError(Exception):
+    pass
+
+
+class Stream:
+    def __init__(self):
+        self.opened = False
+
+    def open(self):
+        if self.opened:
+            raise InvalidOperationError("Stream is already open")
+        self.opened = True
+
+    def close(self):
+        if not self.opened:
+            raise InvalidOperationError("Stream is already close")
+        self.opened = False
+
+
+class FileStream(Stream):
+    def read(self):
+        print("Reading data from a file")
+
+
+class NetworkStream(Stream):
+    def read(self):
+        print("Reading data from a network")
+
+
+####################################################################################################################################################
+# Abstract base class
+
+# there are problem with above class, because we can create Stream object and call the method
+stream = Stream()
+stream.open()
+
+# because stream itself confuse, what stream do we need to work here, file or network, it is better to use FileStream or NetworkStream class to create object
+# if we dont want the parent can create the object, we can set the parent class to abstract
+
+
+class Stream(ABC):
+    def __init__(self):
+        self.opened = False
+
+    def open(self):
+        if self.opened:
+            raise InvalidOperationError("Stream is already open")
+        self.opened = True
+
+    def close(self):
+        if not self.opened:
+            raise InvalidOperationError("Stream is already close")
+        self.opened = False
+
+    # abstract method no need implementaion
+    @abstractmethod
+    def read(self):
+        pass
+
+
+class FileStream(Stream):
+    def read(self):
+        print("Reading data from a file")
+
+
+class NetworkStream(Stream):
+    def read(self):
+        print("Reading data from a network")
+
+
+class MemoryStream(Stream):
+    pass
+
+# cannot instantiace
+# stream = Stream()
+# Traceback (most recent call last):
+#   File "c:\Users\ASUS\Desktop\Python\classes.py", line 602, in <module>
+#     stream = Stream()
+# TypeError: Can't instantiate abstract class Stream with abstract method read
+
+
+# stream = MemoryStream()
+# Traceback (most recent call last):
+#   File "c:\Users\ASUS\Desktop\Python\classes.py", line 613, in <module>
+#     stream = MemoryStream()
+# TypeError: Can't instantiate abstract class MemoryStream with abstract method read
+
+# you must declare the read abstract method in MemoryStream
+
+
+####################################################################################################################################################
+# Polymorphism - many form
+
+
+class UIControl(ABC):
+    @abstractmethod
+    def draw(self):
+        pass
+
+
+class TextBox(UIControl):
+    def draw(self):
+        print("TextBox")
+
+
+class DropDownList(UIControl):
+    def draw(self):
+        print("DropDownList")
+
+
+def draw(controls):
+    for control in controls:
+        control.draw()
+
+
+ddl = DropDownList()
+isinstance(ddl, UIControl)  # True
+
+
+textbox = TextBox()
+draw([ddl, textbox])
+# DropDownList
+# TextBox
+
+####################################################################################################################################################
+# Duck Typing - no need base class also can, as long the class have draw method
+
+
+class TextBox(UIControl):
+    def draw(self):
+        print("TextBox")
+
+
+class DropDownList(UIControl):
+    def draw(self):
+        print("DropDownList")
+
+
+def draw(controls):
+    for control in controls:
+        control.draw()
+
+
+ddl = DropDownList()
+isinstance(ddl, UIControl)  # True
+
+
+textbox = TextBox()
+draw([ddl, textbox])
+# DropDownList
+# TextBox
+
+####################################################################################################################################################
+# Extending Built it Type
+
+
+class Text(str):
+    def duplicate(self):
+        return self + self
+
+
+text = Text("Python")
+# original method of string
+print(text.capitalize())  # Python
+
+# my method
+print(text.duplicate())  # PythonPython
+
+
+class TrackableList(list):
+    def append(self, object):
+        print("Append called")
+        super().append(object)
+
+
+list = TrackableList()
+list.append("1")  # Append called
+
+####################################################################################################################################################
+# Data Classes - only data class
+
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+
+p1 = Point(1, 2)
+p2 = Point(1, 2)
+
+print(p1 == p2)
+# Not using __eq__
+# False - two object store in different memory location
+
+# memory location of object
+print(id(p1))
+# 1859505954176
+print(id(p2))
+# 1859505954080
+
+
+Point = namedtuple("Point", ["x", "y"])
+p1 = Point(x=1, y=2)
+print(p1.x)  # 1
+p2 = Point(x=1, y=2)
+
+
+# not need to implement magin method __eq__
+print(p1 == p2)
+
+# but we cannot immutable, we cannot modify it once we set it
+# p1.x = 10
+# Traceback (most recent call last):
+#   File "c:\Users\ASUS\Desktop\Python\classes.py", line 742, in <module>
+#     p1.x = 10
+# AttributeError: can't set attribute
+
+# if you want to change the value , create a new one
+p1 = Point(x=10, y=20)
