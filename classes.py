@@ -2,8 +2,8 @@
 # Object: instance of a class
 # CLass : Human
 # Objects : John,Mary,Smith
-from collections import namedtuple
-from abc import ABC, abstractmethod
+
+
 x = 1
 print(type(x))  # <class 'int'>
 
@@ -568,7 +568,7 @@ stream.open()
 
 # because stream itself confuse, what stream do we need to work here, file or network, it is better to use FileStream or NetworkStream class to create object
 # if we dont want the parent can create the object, we can set the parent class to abstract
-
+from abc import ABC, abstractmethod
 
 class Stream(ABC):
     def __init__(self):
@@ -622,7 +622,7 @@ class MemoryStream(Stream):
 
 ####################################################################################################################################################
 # Polymorphism - many form
-
+from abc import ABC, abstractmethod
 
 class UIControl(ABC):
     @abstractmethod
@@ -734,7 +734,7 @@ print(id(p1))
 print(id(p2))
 # 1859505954080
 
-
+from collections import namedtuple
 Point = namedtuple("Point", ["x", "y"])
 p1 = Point(x=1, y=2)
 print(p1.x)  # 1
