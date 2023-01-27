@@ -1,0 +1,8 @@
+1. Creating modules
+2. Compiled Python file
+3. Module Search Path
+4. Packages 
+5. Sub Packages 
+6. Intra-package References
+7. The dir function
+8. Executin Modulse as Scripts
