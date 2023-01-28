@@ -1,4 +1,4 @@
-import ecommerce.sales
+import ecommerce.shopping.sales
 import sys
 
 # when we import sales module , it will find the sales.py in current directory, if cannot find it ,it will look into predined location
