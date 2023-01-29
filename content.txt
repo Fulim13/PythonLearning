@@ -9,3 +9,10 @@
 9. path 
 10. directories
 11. file
+12. zipfile (zfile)
+13. acsv
+14. ajson
+15. asqllite
+16. atimestamp
+17. adatetime
+18. arandom.py

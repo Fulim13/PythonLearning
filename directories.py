@@ -37,12 +37,13 @@ print(filter_dir_paths)
 # WindowsPath('module/ecommerce/__pycache__')]
 
 # can  search file , and put the pattern you want to search
-
+# return generator
 py_files = [p for p in path.glob("*.py")]
 print(py_files)
 # [WindowsPath('module/ecommerce/__init__.py')]
 
 # recursive search file
+# return generator
 py_files = [p for p in path.rglob("*.py")]
 print(py_files)
 # [WindowsPath('module/ecommerce/__init__.py'),

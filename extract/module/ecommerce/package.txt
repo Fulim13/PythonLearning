@@ -1,0 +1,1 @@
+When app grow, we want to group some module as package, so we can do it by create a subfolder then called __init__.py , so it will treat ecommerce as package
