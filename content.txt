@@ -16,3 +16,8 @@
 16. atimestamp
 17. adatetime
 18. arandom.py
+19. open_browser
+20. send_email
+21. templates
+22. command_line
+23. external_program (+other.py)
