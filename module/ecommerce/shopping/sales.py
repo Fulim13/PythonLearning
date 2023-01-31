@@ -1,11 +1,11 @@
 # intra
 # abs - recommend using
-# from customer import contact
+from ecommerce.customer import contact
 
 # relative
 # from ..customer import contact
 
-# contact.contact_customer()
+contact.contact_customer()
 
 #
 
