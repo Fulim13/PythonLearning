@@ -12,9 +12,9 @@ you can run the python file directly in the command line by typing
 
 Go to environment variable > User variable > Path
 
-![Untitled](https://github.com/Fulim13/PythonLearning/tree/main/image/env.png?raw=true)
+![Untitled](images/env.png)
 
-![Untitled](https://github.com/Fulim13/PythonLearning/tree/main/image/pythonversion.png?raw=true)
+![Untitled](images/pythonversion.png)
 
 because the python 310 is above python 311
 
@@ -27,13 +27,13 @@ sys.executable # to konw which python is running
 quit()
 ```
 
-![Untitled](https://github.com/Fulim13/PythonLearning/tree/main/image/sysexecutable.png?raw=true)
+![Untitled](images/sysexecutable.png)
 
 ```bash
 echo %path% #all the path
 ```
 
-![Untitled](https://github.com/Fulim13/PythonLearning/tree/main/image/echoPath.png?raw=true)
+![Untitled](images/echoPath.png)
 
 when cannot import django
 
@@ -43,6 +43,6 @@ pip show django
 then the folder must be same as the sys.executable
 ```
 
-![Untitled](https://github.com/Fulim13/PythonLearning/tree/main/image/pipshow.png?raw=true)
+![Untitled](images/pipshow.png)
 
-![Untitled](https://github.com/Fulim13/PythonLearning/tree/main/image/sysexecutable_highlight.png?raw=true)
+![Untitled](images/sysexecutable_highlight.png)
