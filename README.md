@@ -2,7 +2,6 @@
 
 ## Order of learning
 
-
 1. primitive
 2. control
 3. function
@@ -11,7 +10,7 @@
 6. exception
 7. class
 8. module > content.txt
-9. path 
+9. path
 10. directories
 11. file
 12. zipfile (zfile)
@@ -28,4 +27,6 @@
 23. external_program (+other.py)
 24. pypi
 25. virtual environment
-25. aPipenv
+26. aPipenv
+27. publish_package > lim pdf > limpdf app.py (docstring)
+28. pydoc

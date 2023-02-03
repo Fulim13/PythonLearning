@@ -41,7 +41,7 @@ print(my_name)
 # "Fu' L\im
 
 ############################################################################################
-# Formatted String
+# Formatted String (> version Python 3.6)
 first_name = "Fu Lim"
 last_name = "Wong"
 
