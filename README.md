@@ -31,5 +31,6 @@
 27. [publish_package > lim pdf > limpdf app.py (docstring)](publish_package.py)
 28. [apydoc](apydoc.py)
 29. [SET_PATH_SWITCH_VERSION](SET_PATH_SWITCH_VERSION.md)
+30. [API](pyyelp/)
 
 EXTRA: [gpt](gpt.py)
