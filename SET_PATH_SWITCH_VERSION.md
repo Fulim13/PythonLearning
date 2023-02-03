@@ -12,7 +12,7 @@ you can run the python file directly in the command line by typing
 
 Go to environment variable > User variable > Path
 
-![Untitled](https://github.com/Fulim13/PythonLearning/tree/main/image/env.png?raw=true)
+![Untitled](https://raw.githubusercontent.com/Fulim13/PythonLearning/main/image/env.png?token=GHSAT0AAAAAAB6KDISRQ6E662CMNFRMS6CYY65F2OQ)
 
 ![Untitled](https://github.com/Fulim13/PythonLearning/tree/main/image/pythonversion.png?raw=true)
 
