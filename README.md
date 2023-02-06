@@ -2,6 +2,8 @@
 
 ## Order of learning
 
+[INTRO](INTRO.md)
+
 1. [primitive](primitive.py)
 2. [control](control.py)
 3. [function](function.py)
@@ -32,5 +34,9 @@
 28. [apydoc](apydoc.py)
 29. [SET_PATH_SWITCH_VERSION](SET_PATH_SWITCH_VERSION.md)
 30. [API](pyyelp/)
+31. [Web Scrapping](WebScrapping/)
+32. [Browser Automation](BrowserAutomation/)
+33. [PDF](Pypdf/)
+34. [Excel](PyExcel/)
 
 EXTRA: [gpt](gpt.py)
