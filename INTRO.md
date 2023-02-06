@@ -10,7 +10,7 @@ implementation is the program understand those rules and execute
 C > Compiler > Machine Code > Processor - But the Machine Code specific to the type of Processor,OS
 JAVA > Compiler > JavaByteCode > (WINDOW JVM > WINDOW MACHINE)JVM(RUNTIME) > Machine Code - so is code independent for JavaByteCode ((WINDOW JVM > WINDOW MACHINE CODE))
 
-Python > Cpython(Compiler) > PythonByteCode > Python Virtual Machine > Machine Code
+Python > Cpython(Compiler) - Check Syntax > PythonByteCode > Python Virtual Machine(Interpreter) (Run)> Machine Code
 
 Other implementation
 Python > Jython > JavaBytecode > JVM > Machine Code
