@@ -38,5 +38,9 @@
 32. [Browser Automation](BrowserAutomation/)
 33. [PDF](Pypdf/)
 34. [Excel](PyExcel/)
+35. [Iterator](https://www.programiz.com/python-programming/iterator)
+36. [Generator](https://www.programiz.com/python-programming/generator)
+37. [Decorator](https://www.programiz.com/python-programming/decorator)
+38. [Meta Class](https://www.geeksforgeeks.org/python-metaclasses/)
 
 EXTRA: [gpt](gpt.py)
