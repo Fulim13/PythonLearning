@@ -42,5 +42,6 @@
 36. [Generator](https://www.programiz.com/python-programming/generator)
 37. [Decorator](https://www.programiz.com/python-programming/decorator)
 38. [Meta Class](https://www.geeksforgeeks.org/python-metaclasses/)
+39. [Numpy](NUMPY/)
 
 EXTRA: [gpt](gpt.py)
