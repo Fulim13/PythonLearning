@@ -43,5 +43,6 @@
 37. [Decorator](https://www.programiz.com/python-programming/decorator)
 38. [Meta Class](https://www.geeksforgeeks.org/python-metaclasses/)
 39. [Numpy](NUMPY/)
+40. [\_\_main\_\_](__main__/)
 
 EXTRA: [gpt](gpt.py)
